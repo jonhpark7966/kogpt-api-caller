@@ -55,15 +55,12 @@ class koGPT {
     }));
     }catch(_){}
 
-    print(bodyMap);
-
-
     // request http
-    var url = Uri.https('api.kakaobrain.com', 'v1/inference/kogpt/generation');
+    var url = Uri.https('thingproxy.freeboard.io',"/fetch/https://api.kakaobrain.com/v1/inference/kogpt/generation");
     var response = await http.post(url,
         headers: {
           "Authorization": "KakaoAK ${values["REST API Key"]}",
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: jsonEncode(bodyMap));
 

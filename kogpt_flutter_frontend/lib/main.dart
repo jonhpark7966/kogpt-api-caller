@@ -9,6 +9,8 @@ import 'response_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'dart:html' as html;
+
 
 void main() => runApp(const MainApp());
 
@@ -75,10 +77,26 @@ class MainPage extends StatelessWidget {
             ),
             ResponsiveDecorator(
               color: Colors.purple.shade100,
-              shadeColor: Colors.purple.shade900,
-              child: ResponseWidget(),
+                  shadeColor: Colors.purple.shade900,
+                  child: ResponseWidget(),
+                ),
+                const Divider(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  const Text("made by Jong Hyun Park, Refer this"),
+                  TextButton(
+                    child: const Text("POST"),
+                    onPressed: () {
+                      html.window.open(
+                          "https://tmmse.xyz/2022/10/22/kogpt-web-ui/",
+                          "_blank");
+                    },
+                  ),
+                ]),
+              ],
             ),
-        ],),),)
-     );
+          ),
+        ));
   }
 }

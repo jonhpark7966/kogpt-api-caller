@@ -44,7 +44,8 @@ class _RequestWidgetState extends State<RequestWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
           SizedBox(
-            width: value.isMultiline?700:300,
+            width: value.isMultiline?( (MediaQuery.of(context).size.width < 820)?
+             (MediaQuery.of(context).size.width - 120) :700):250,
             child: TextField(
               keyboardType: TextInputType.multiline,
               minLines:value.isMultiline?3:1,

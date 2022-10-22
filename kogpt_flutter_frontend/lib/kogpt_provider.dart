@@ -37,9 +37,12 @@ class koGPTProvider extends ChangeNotifier{
     state.isWaiting = true;
     notifyListeners();
 
+    try{
     var responseBody = await koGPT.request(values);
-    print(responseBody);
     state.parse(responseBody);
+    }catch(e){
+      state.errorMsg = e.toString();
+    }
     state.isWaiting = false;
     notifyListeners();
   }
